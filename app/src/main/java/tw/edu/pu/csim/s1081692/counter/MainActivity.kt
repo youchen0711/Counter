@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener , View.OnLongClic
         })
 
         txv.setOnLongClickListener(this)
-
+        img.setOnLongClickListener(this)
+        img.setOnClickListener(this)
 
     }
 
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener , View.OnLongClic
 
 
     override fun onClick(view: View) {
-        if (view==button4 ||view==txv){
+        if (view==button4 ||view==txv || view==img){
             counter++
         }
         else if(view==button5){
@@ -59,7 +60,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener , View.OnLongClic
     }
 
     override fun onLongClick(v: View?): Boolean {
-        counter+=2
+        if(v==txv) {
+            counter += 2
+        }
+        else{
+            counter--
+        }
         txv.text = counter.toString()
         return true
     }
