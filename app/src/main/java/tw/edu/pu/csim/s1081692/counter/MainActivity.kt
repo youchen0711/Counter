@@ -15,6 +15,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         button3.setOnClickListener(this)
 
+        btnHappy.setOnClickListener(this)
+
+        btnHappy.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                counter= (1..100).random()
+                txv.text = counter.toString()
+            }
+        })
+
     }
 
 
@@ -32,23 +41,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onClick(view: View) {
-        if (view.id.equals(R.id.txv)){
+        if (view==button4 ||view==txv){
             counter++
+        }
+        else if(view==button5){
+            counter+=2
         }
         else{
             counter = 0
         }
         txv.text = counter.toString()
     }
-
-    override fun onClick(view: View) {
-        if (view.id.equals(R.id.txv)){
-            counter++
-        }
-        else{
-            counter = 0
-        }
-        txv.text = counter.toString()
-    }
-
 }
